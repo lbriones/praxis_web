@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  titulo: MyString
+  sueldo: 1
+  descripcion: MyText
+  funciones: MyText
+  requisitos: MyText
+
+two:
+  titulo: MyString
+  sueldo: 1
+  descripcion: MyText
+  funciones: MyText
+  requisitos: MyText

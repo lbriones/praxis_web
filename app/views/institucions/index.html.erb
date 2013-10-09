@@ -1,0 +1,23 @@
+<h1>Listing institucions</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @institucions.each do |institucion| %>
+  <tr>
+    <td><%= institucion.nombre %></td>
+    <td><%= link_to 'Show', institucion %></td>
+    <td><%= link_to 'Edit', edit_institucion_path(institucion) %></td>
+    <td><%= link_to 'Destroy', institucion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Institucion', new_institucion_path %>

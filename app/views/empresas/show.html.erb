@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Razonsocial:</b>
+  <%= @empresa.razonsocial %>
+</p>
+
+<p>
+  <b>Rut:</b>
+  <%= @empresa.rut %>
+</p>
+
+<p>
+  <b>Logo:</b>
+  <%= @empresa.logo %>
+</p>
+
+<p>
+  <b>Direccion:</b>
+  <%= @empresa.direccion %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%= @empresa.telefono %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @empresa.email %>
+</p>
+
+<p>
+  <b>Conctato:</b>
+  <%= @empresa.conctato %>
+</p>
+
+
+<%= link_to 'Edit', edit_empresa_path(@empresa) %> |
+<%= link_to 'Back', empresas_path %>

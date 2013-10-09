@@ -1,0 +1,35 @@
+<h1>Listing empresas</h1>
+
+<table>
+  <tr>
+    <th>Razonsocial</th>
+    <th>Rut</th>
+    <th>Logo</th>
+    <th>Direccion</th>
+    <th>Telefono</th>
+    <th>Email</th>
+    <th>Conctato</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @empresas.each do |empresa| %>
+  <tr>
+    <td><%= empresa.razonsocial %></td>
+    <td><%= empresa.rut %></td>
+    <td><%= empresa.logo %></td>
+    <td><%= empresa.direccion %></td>
+    <td><%= empresa.telefono %></td>
+    <td><%= empresa.email %></td>
+    <td><%= empresa.conctato %></td>
+    <td><%= link_to 'Show', empresa %></td>
+    <td><%= link_to 'Edit', edit_empresa_path(empresa) %></td>
+    <td><%= link_to 'Destroy', empresa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Empresa', new_empresa_path %>

@@ -1,0 +1,18 @@
+
+<%- model_class = Post -%>
+  <h1>Bolsa de practicas profesionales</h1>
+<div>
+    <% @posts.each do |post| %>
+  <div class="container">
+    <h3><%= post.titulo %></h3>
+    <h4>Renta: $ <%= post.sueldo %></h4>
+        <p><%= post.descripcion %></p>
+        <p><%= post.created_at %></p>
+    <%= link_to 'Ver Oferta laboral',
+                      post_path(post), :class => 'btn btn-success' %>
+  </div>
+</div>
+<% end %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_post_path,
+            :class => 'btn btn-primary' %>

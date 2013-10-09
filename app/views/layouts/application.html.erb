@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "PraxisWeb" %></title>
+    <%= csrf_meta_tags %>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <!-- Size should be 144 x 144 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <!-- Size should be 114 x 114 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+
+    <!-- For first- and second-generation iPad: -->
+    <!-- Size should be 72 x 72 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <!-- Size should be 57 x 57 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+
+    <!-- For all other devices -->
+    <!-- Size should be 32 x 32 pixels -->
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+
+    <%= javascript_include_tag "application" %>
+  </head>
+  <body>
+
+    <div class="navbar navbar-fluid-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">PraxisWeb</a>
+          <div class="container-fluid nav-collapse">
+
+            <ul class="nav">
+            <li class="active"><a href=""><i class="icon-home"></i> Home</a></li>
+            <li class=""><a href="/posts/"><i class="icon-th-list"></i> Practicas Profesionales</a></li>
+            <li class=""><a href="/posts/"><i class="icon-th-list"></i> Practicas Laborales</a></li>
+
+            <% if user_signed_in? %>
+
+            <ul class="nav">
+              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list-alt"></i>
+                <%= current_user.email %><span class="label label-success"></span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class=""><a href=""><i class="icon-pencil"></i> Datos personales</a></li>
+                <li class=""><a href=""><i class="icon-tasks"></i> Reconoce tu perfil <span class="label label-success">new</span></a></li>
+                <li class=""><%= link_to ' Salir', destroy_user_session_path, method: :delete %></li>
+              </ul>
+
+            <% else %>
+            <%= link_to t('.new', :default => t("Iniciar Sesion")), new_user_session_path, :class => 'btn' %>
+            <% end %>
+
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">INFO ADM</li>
+              <li><%= link_to "Areas", "/areas"  %></li>
+              <li><%= link_to "Nivel de estudios", "/nivels"  %></li>
+              <li><%= link_to "Universidades", "/institucions"  %></li>
+              <li><%= link_to "Carreras", "/carreras"  %></li>
+              <li><%= link_to "Comunas", "/comunas"  %></li>
+              <li class="nav-header">INFO EMPRESAS</li>
+              <li><%= link_to "Ofertas", "/posts"  %></li>
+              <li><%= link_to "Informacion", "/empresas"  %></li>
+              <li class="nav-header">INFO AUMNOS</li>
+              <li><%= link_to "Estudiante", "/estudiantes"  %></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div><!--/row-->
+
+      <footer>
+        <p>&copy; Company 2013</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

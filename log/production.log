@@ -1,0 +1,14 @@
+Connecting to database specified by database.yml
+Migrating to DeviseCreateUsers (20131006042331)
+Migrating to AddUsernameToUsers (20131006050219)
+Migrating to CreatePosts (20131006060444)
+Migrating to CreateAreas (20131006061627)
+Migrating to CreateComunas (20131006061722)
+Migrating to CreateCarreras (20131006061749)
+Migrating to CreateNivels (20131006062101)
+Migrating to CreateInstitucions (20131006062227)
+Migrating to CreateEstudiantes (20131006080949)
+Migrating to CreateEmpresas (20131006230045)
+Migrating to AddFotoToEstudiantes (20131006232557)
+Migrating to AddBioToEstudiantes (20131007012748)
+Connecting to database specified by database.yml
