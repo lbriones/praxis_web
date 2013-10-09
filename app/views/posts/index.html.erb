@@ -1,6 +1,5 @@
 
 <%- model_class = Post -%>
-  <h1>Bolsa de practicas profesionales</h1>
 <div>
     <% @posts.each do |post| %>
   <div class="container">
@@ -13,6 +12,3 @@
   </div>
 </div>
 <% end %>
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_post_path,
-            :class => 'btn btn-primary' %>
