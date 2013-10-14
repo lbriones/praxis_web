@@ -1,98 +1,33 @@
-<p id="notice"><%= notice %></p>
-<div class="container">
-      <div class="row" id="content">
-        
-        <!-- If you want the sidebar placed on the left, place it just after this and change the sbright class by sbleft -->
-
-        <!-- MAIN CONTENT -->
-        <!--/span9-->
-        <!-- END OF THE MAIN CONTENT -->
-        
-        <!-- Sidebar placed on the RIGHT of the screen -->
-        <div class="span9 equal" id="main-content">
-        
-          <div class="tools noprint visible-desktop">
-        <a href="javascript:if(window.print)window.print()" data-placement="bottom" class="tips glyphicons print" data-original-title="Print"><i></i></a>
-        <a href="#" data-placement="bottom" class="tips glyphicons file_import" data-original-title="Download"><i></i></a>
-      </div>
-
-        
-          <div class="section first-section" id="about-me">
-              <div class="row author">
-                <div class="span3">
-                  <%= image_tag @estudiante.id %>
-                </div>
-                <div class="span6">
-              <h1><%= @estudiante.nombre %></h1><br>
-              <h2 class="primary-color">Perfil : Diseñador, Creativo, Busca Estabilidad.</h2>
-            </div>
-        </div>
-      
-        <div class="well">
-          <h3>Soy estudiante de @carrera en @intitucion</h3>
-          <p class="lead"><%= @estudiante.bio %></p>
-        </div>
-        <!--
-        <div class="social-media noprint">
-          <h5>Follow me</h5>
-          <div>
-            <div class="tips icon-btn" data-placement="bottom" data-original-title="Facebook"><a href="#" class="glyphicons white facebook"><i></i></a></div>
-            <div class="tips icon-btn" data-placement="bottom" data-original-title="Twitter"><a href="#" class="glyphicons white twitter"><i></i></a></div>
-            <div class="tips icon-btn" data-placement="bottom" data-original-title="Linkedin"><a href="#" class="glyphicons white linked_in"><i></i></a></div>
-          </div>
-        </div>    
-      </div>/  section--> 
-            
-            <div class="section" id="personal-information">
-              <h2 class="section-title"><span class="glyphicons user"><i></i></span>Personal Information<a href="#phone-navbar" class="top visible-phone"><span class="glyphicons white up_arrow"><i></i></span></a></h2>
-        
-        <div class="row">
-            <span class="clear"></span>
-              <div class="infoline span9 first"><div class="row">
-                  <div class="span2 muted">F. Nacimiento</div>
-                  <div class="span7">11 de Julio 1984</div>
-            </div></div>
-            <span class="clear"></span>
-            
-              <div class="infoline span9"><div class="row">
-              <div class="span2 muted">Direccion</div>
-              <div class="span7"><%= @estudiante.direccion %> Santiago, Chile
-              </div>
-          </div></div>
-          <span class="clear"></span>
-            
-              <div class="infoline span9"><div class="row">
-              <div class="span2 muted">Rut</div>
-              <div class="span7"><%= @estudiante.rut %><br>
-              </div>
-          </div></div>
-            <span class="clear"></span>
-            
-              <div class="infoline span9"><div class="row">
-              <div class="span2 muted">Email</div>
-              <div class="span7"><%= @estudiante.user.email %> </div>
-            </div></div>
-            <span class="clear"></span>
-            
-              <div class="infoline span9"><div class="row">
-              <div class="span2 muted">Telefono</div>
-              <div class="span7"><%= @estudiante.telefono %><br>
-              </div>
-          </div></div>
-            <span class="clear"></span>
-            
-              <div class="infoline span9 last"><div class="row">
-              <div class="span2 muted">Sitio Web</div>
-              <div class="span7"><a href="http://www.miweb.com" title="">miweb.com</a></div>
-          </div></div>
-            <span class="clear"></span>
-        
-          </div>
-        </div><!--/section-->         
-        
-    </div><!--/row-->
-
-
+<%- model_class = Estudiante -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
-<%= link_to 'Edit', edit_estudiante_path(@estudiante), :class => 'btn' %> |
-<%= link_to 'Back', estudiantes_path, :class => 'btn' %>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:nombre) %>:</strong></dt>
+  <dd><%= @estudiante.nombre %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rut) %>:</strong></dt>
+  <dd><%= @estudiante.rut %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:direccion) %>:</strong></dt>
+  <dd><%= @estudiante.direccion %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:telefono) %>:</strong></dt>
+  <dd><%= @estudiante.telefono %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:foto) %>:</strong></dt>
+  <dd><%= @estudiante.foto %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:bio) %>:</strong></dt>
+  <dd><%= @estudiante.bio %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @estudiante.user_id %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              estudiantes_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_estudiante_path(@estudiante), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              estudiante_path(@estudiante),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
