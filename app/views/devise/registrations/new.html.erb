@@ -1,0 +1,37 @@
+<h2>Sign ddup</h2>
+<% resource.build_estudiante %>
+ <%= form_for(resource, :as => resource_name,
+                         :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+
+
+      <%= f.fields_for :estudiante do |estudiante_form| %>
+        <%= estudiante_form.label :rut %>
+        <%= estudiante_form.text_field :rut %>
+        <%= estudiante_form.label :nombre %>
+        <%= estudiante_form.text_field :nombre %>
+        <%= estudiante_form.label :foto %>
+        <%= estudiante_form.text_field :foto %>
+        <%= estudiante_form.label :bio %>
+        <%= estudiante_form.text_area :bio %>
+        <%= estudiante_form.label :direccion %>
+        <%= estudiante_form.text_field :direccion %>
+        <%= estudiante_form.label :telefono %>
+        <%= estudiante_form.text_field :telefono %>
+      <% end %>
+
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "Sign up" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>

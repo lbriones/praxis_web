@@ -1,4 +1,7 @@
 PraxisWeb::Application.routes.draw do
+
+  get "login/index"
+  
   resources :empresas
 
 
@@ -22,8 +25,6 @@ PraxisWeb::Application.routes.draw do
 
   resources :posts
 
-
-  get "login/index"
 
   devise_for :users
 
@@ -76,7 +77,7 @@ PraxisWeb::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'posts#index'
+   root :to => 'login#index'
 
   # See how all your routes lay out with "rake routes"
 

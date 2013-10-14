@@ -79,13 +79,10 @@
               <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list-alt"></i>
                 <%= current_user.email %><span class="label label-success"></span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li class=""><a href=""><i class="icon-pencil"></i> Datos personales</a></li>
-                <li class=""><a href=""><i class="icon-tasks"></i> Reconoce tu perfil <span class="label label-success">new</span></a></li>
-                <li class=""><%= link_to ' Salir', destroy_user_session_path, method: :delete %></li>
+                <li class=""><a href=""></i> Reconoce tu perfil <span class="label label-success">new</span></a></li> 
+                <li class=""><%= link_to ' Edita tu Perfil', edit_user_registration_path(@user) %></li>
+                <li class=""><%= link_to ' Cerrar Sesion', destroy_user_session_path, method: :delete %></li>
               </ul>
-
-              
-
             <% else %>
             <%= link_to t('.new', :default => t("Iniciar Sesion")), new_user_session_path, :class => 'btn' %>
             <% end %>
