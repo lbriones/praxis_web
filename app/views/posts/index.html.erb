@@ -1,13 +1,12 @@
+<%= form_tag posts_path, :class => 'navbar-search pull-right',:method => 'get' do %>
+<%= text_field_tag "search", params[:search], :placeholder => 'Busca tu practica !' %>
+<% end %>
 
 <%- model_class = Post -%>
-<div>
     <% @posts.each do |post| %>
-  <div class="container">
     <h3><%= post.titulo %></h3>
     <h4>Renta: $ <%= post.sueldo %></h4>
         <p><%= post.descripcion %></p>
         <p><%= post.created_at %></p>
     <%= link_to 'Ver Oferta laboral', post_path(post), :class => 'btn btn-success' %>
-  </div>
-</div>
 <% end %>
