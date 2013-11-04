@@ -1,19 +1,48 @@
-<div class="row-fluid">
-  <div class="span4 well">
-    <%= form_for @member, :html => {:class => "form-horizontal"} do |m| %>
-        <fieldset>
-          <legend>Member Form</legend>
+<div class="form-actions">
+<% resource.build_estudiante %>
+ <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+      <legend>Registro</legend>
+    <%= f.fields_for :estudiante do |e| %>
           <div class="control-group">
-            <%= m.label :title, :class => "control-label" %>
-            <div class="controls">
-              <%= m.text_field :title, :class => "input-xlarge" %>
-            </div>
+            <label class="control-label"><%= e.label :rut %></label>
+            <div class="controls"><%= e.text_field :rut %></div>
           </div>
+          <div class="control-group">
+            <label class="control-label"><%= e.label :nombre %></label>
+            <div class="controls"><%= e.text_field :nombre %></div>
+          </div>
+          <div class="control-group">
+            <label class="control-label"><%= e.label :bio %></label>
+            <div class="controls"><%= e.text_area :bio, size: "2x3"%></div>
+          </div>
+          <div class="control-group">
+            <label class="control-label"><%= e.label :foto %></label>
+            <div class="controls"><%= e.file_field :foto %></div>
+          </div>
+          <div class="control-group">
+            <label class="control-label"><%= e.label :direccion %></label>
+            <div class="controls"><%= e.text_field :direccion %></div>
+          </div>
+          <div class="control-group">
+            <label class="control-label"><%= e.label :telefono %></label>
+            <div class="controls"><%= e.text_field :telefono %></div>
+          </div>
+      <% end %>
+          <div class="control-group">
+            <label class="control-label"><%= f.label :email %></label>
+            <div class="controls"><%= f.email_field :email, :autofocus => true %></div>
+          </div>
+          <div class="control-group">
+            <label class="control-label"><%= f.label :password %></label>
+            <div class="controls"><%= f.password_field :password %></div>
+          </div>
+          <div class="control-group">
+            <label class="control-label"><%= f.label :password_confirmation %></label>
+            <div class="controls"><%= f.password_field :password_confirmation %></div>
+          </div>
+            <%= f.submit 'Registrar', :class => 'btn btn-primary' %>
+</form>
+<% end %>
+<%= render "devise/shared/links" %>
 
-          <div class="form-actions">
-            <m.submit :class => "btn btn-primary">
-          </div>
-        </fieldset>
-    <% end %>
-  </div>
-</div>
