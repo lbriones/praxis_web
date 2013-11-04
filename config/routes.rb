@@ -24,7 +24,8 @@ PraxisWeb::Application.routes.draw do
 
 
   resources :posts
-
+  
+  resources :users
 
   devise_for :users
 
