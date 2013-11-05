@@ -7,6 +7,6 @@
     <h3><%= post.titulo %></h3>
     <h4>Renta: $ <%= post.sueldo %></h4>
         <p><%= post.descripcion %></p>
-        <p><%= post.created_at %></p>
+        <p><span class="label">Publicado hace <%= time_ago_in_words(post.created_at) %></span></p>
     <%= link_to 'Ver Oferta laboral', post_path(post), :class => 'btn btn-success' %>
 <% end %>

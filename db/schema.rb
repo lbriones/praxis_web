@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131013060952) do
+ActiveRecord::Schema.define(:version => 20131105035556) do
 
   create_table "areas", :force => true do |t|
     t.string   "nombre"
@@ -48,11 +48,15 @@ ActiveRecord::Schema.define(:version => 20131013060952) do
     t.string   "rut"
     t.string   "direccion"
     t.string   "telefono"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "foto"
     t.text     "bio"
     t.integer  "user_id"
+    t.integer  "carrera_codigo"
+    t.integer  "comuna_codigo"
+    t.integer  "institucion_codigo"
+    t.integer  "nivel_codigo"
   end
 
   add_index "estudiantes", ["user_id"], :name => "index_estudiantes_on_user_id"
