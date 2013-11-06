@@ -25,9 +25,12 @@ PraxisWeb::Application.routes.draw do
 
   resources :posts
   
-  #resources :users
-
   devise_for :users
+  resources :users do
+    member do
+      get :estudiantes
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

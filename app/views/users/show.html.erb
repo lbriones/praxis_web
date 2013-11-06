@@ -1,20 +1,112 @@
 <%- model_class = User -%>
 <div class="page-header">
-  <h1><%= @user.username %></h1>
+  <h1>Nicole Díaz</h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @user.username %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-  <dd><%= @user.email %></dd>
+  <dd></dd>
+  <dd></dd>
 </dl>
+
+<div class="container">
+            <div class="span8">
+                <div class="thumbnail span3">
+                    <img src="/img/profile.png" alt="">
+                </div>
+                <div class="span4">
+                    <h3>Ingeniero en Informatica</h3>
+                    <p><%= @user.estudiante.bio %></p>
+                <div class="page-header">
+                </div>
+                    <p>
+                        <i class="icon-map-marker"></i>
+                        <%= @user.estudiante.direccion %>
+                    </p>
+                    <div class="progress progress-info">
+					  <div class="bar" style="width: 80%">Trabajo ético</div>
+					</div>
+					<div class="progress progress-success">
+					  <div class="bar" style="width: 60%">Actitud positiva</div>
+					</div>
+					<div class="progress progress-warning">
+					  <div class="bar" style="width: 50%">Habilidades comunicativas</div>
+					</div>
+					<div class="progress progress-danger">
+					  <div class="bar" style="width: 40%">Manejo del tiempo</div>
+					</div>
+					<div class="progress progress-danger">
+					  <div class="bar" style="width: 60%">Seguridad personal</div>
+					</div>
+                </div>
+                <div id="myCarousel" class="carousel noPrint">
+                    <!-- Carousel items -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="carousel-caption">
+                                <h4>1 - Thumbnail label</h4>
+                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="carousel-caption">
+                                <h4>2 - Thumbnail label</h4>
+                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="carousel-caption">
+                                <h4>3 - Thumbnail label</h4>
+                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            
+                            <div class="carousel-caption">
+                                <h4>4 - Thumbnail label</h4>
+                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-header">
+                    <h2>Educacion</h2>
+                </div>
+                <dl>
+                    <dt><i class="icon-star"></i> Ingeniería En Informática</dt>
+                    <dd>Instituto Profesional Duoc UC.</dd>
+                    <dt><i class="icon-star"></i> Adm. Recursos Humanos</dt>
+                    <dd>Instituto Profesional Duoc UC.</dd>
+                    <dt><i class="icon-star"></i> Técnico Profesional En Administración</dt>
+                    <dd>Liceo Comercial Talagante, Talagante.</dd>
+                </dl>  
+
+                <div class="page-header">
+                    <h2>Intereses</h2>
+                </div> 
+                <dl>
+                    <dt><i class="icon-asterisk"></i> Proyectos</dt>
+                    <dd>Desarrollo de ideas y negocios para proyectos de emprendimientos e innovación tecnológica.</dd>
+                    <dt><i class="icon-asterisk"></i> Actividades recreativas</dt>
+                    <dd>Participación activa en Hackatons nacionales e internacionales.</dd>
+                    <dt><i class="icon-asterisk"></i> Voluntariados</dt>
+                    <dd>Actualmente formo parte del equipo de gestión de Fundación AIESEC UC del Cono-Sur.</dd>
+                </dl>  
+
+            </div>
+            <div class="span3">
+                <div class="page-header">
+               		<h2>Contact</h2>
+                </div>
+                <p><i class="icon-envelope"></i> <%= @user.email %></p>
+                <p><i class="icon-signal"></i> <%= @user.estudiante.telefono %></p>
+                <p><i class="icon-tag"></i> <%= @user.estudiante.rut %></p>
+
+                <a href="#" class="btn btn-large noPrint" id="printBtn"><i class="icon-print"></i> Print</a>
+                <a href="Curriculum_Vitae.pdf" class="btn btn-large noPrint" id="downBtn"><i class="icon-download"></i> Download</a>
+            </div>
+        </div>
+
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               users_path, :class => 'btn'  %>
-
-  
-  <%= link_to t('.back', :default => t("userular")),
-              users_path, :class => 'btn btn-success' %>
-              
