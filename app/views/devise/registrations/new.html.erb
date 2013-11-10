@@ -14,7 +14,7 @@
             <%= e.label 'describete en 140 caracteres !', :class => 'control-label' %>
             <%= e.text_area :bio, size: "2x3"%>
             <%= e.label 'Tu foto!', :class => 'control-label' %>
-            <%= e.file_field :foto %>
+            <%= e.text_field :foto, :defaul => '/img/profile.png' %>
             <%= e.label 'tu direccion?', :class => 'control-label' %>
             <%= e.text_field :direccion %>
             <%= e.label 'Tu telefono?', :class => 'control-label' %>
@@ -22,8 +22,8 @@
             
 </div>
  <div class="span5">
-            <%= e.label 'Cual es tu nivel de estudios?', :class => 'control-label' %>
-            <%= e.collection_select(:nivel_codigo, Nivel.all, :id, :nombre, :class => 'control-label', :prompt => "Seleccione") %>
+            <%= e.label 'Tu fecha de nacimiento?', :class => 'control-label' %>
+            <%= e.text_field :fecha_nacimiento %>
             <%= e.label 'Que carrera estudiaste?', :class => 'control-label' %>
             <%= e.collection_select(:carrera_codigo, Carrera.all, :id, :nombre, :prompt => "Seleccione") %>
             <%= e.label 'En que comuna vives?', :class => 'control-label' %>
@@ -36,9 +36,9 @@
 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
   Currently waiting confirmation for: <%= resource.unconfirmed_email %>
 <% end %>
-            <%= f.label 'contraseña', :class => 'control-label' %></label>
+            <%= f.label 'contrasena', :class => 'control-label' %></label>
             <%= f.password_field :password, :autocomplete => "off" %>
-            <%= f.label 'repite tu contraseña', :class => 'control-label' %>
+            <%= f.label 'repite tu contrasena', :class => 'control-label' %>
             <%= f.password_field :password_confirmation %>
 </form>
 

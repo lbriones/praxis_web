@@ -1,10 +1,9 @@
 class Estudiante < ActiveRecord::Base
-  attr_accessible :id, :direccion, :nombre, :user_id, :rut, :bio, :foto, :telefono, :nivel_codigo, :carrera_codigo, :comuna_codigo, :institucion_codigo
+  attr_accessible :id, :direccion, :nombre, :user_id, :rut, :bio, :foto, :fecha_nacimiento, :telefono, :carrera_codigo, :comuna_codigo, :institucion_codigo, :nombre
   belongs_to :user
   has_one :carrera
   has_one :comuna
   has_one :institucion
-  has_one :nivel
  
   validates_format_of :rut,
                       :with => /\A(\d{7,9})\Z/i,
@@ -32,38 +31,38 @@ class Estudiante < ActiveRecord::Base
       end
     end
   end
-  FOTOS = File.join Rails.root, 'public', 'IMG'
+
+  FOTOS = File.join Rails.root, 'public', 'img'
   after_save :guardar_foto
   
-  def foto(file_data)
-                  unless file_data.blank?
-                  @file_data = file_data
-                  self.extension = file_data.original_filename.split('.').last.downcase
-                  end
-  end
+  #def foto(file_data)
+  #    unless file_data.blank?
+  #        @file_data = file_data
+  #        self.extension = file_data.original_filename.split('.').last.downcase
+  #    end
+  #end
 
   def photo_filename
-                  File.join FOTOS, "#{id}.#{extension}"
+      File.join FOTOS, "#{id}.#{extension}"
   end
 
   def photo_path
-                  "/IMG/#{id}.#{extension}"
+      "/img/#{id}.#{extension}"
   end
 
   def has_photo?
-                  File.exists? photo_filename
+      File.exists? photo_filename
   end
-
 
   private
   def guardar_foto
-          if @file_data
-                  FileUtils.mkdir_p IMG
-                  File.open(photo_filename, 'wb') do |f|
-                          f.write(@file_data.read)
-                  end
-                  @file_data = nil
-          end
+      if @file_data
+        FileUtils.mkdir_p img
+        File.open(photo_filename, 'wb') do |f|
+          f.write(@file_data.read)
+      end
+      @file_data = nil
+    end
   end
 
 end

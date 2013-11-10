@@ -18,3 +18,10 @@ body {
 
 }
 .form-control { margin-bottom: 10px; }
+
+/*.nav-collapse .navbar-form,
+  .nav-collapse .navbar-search {
+    float: none;
+    padding: 10px 15px;
+  }
+*/

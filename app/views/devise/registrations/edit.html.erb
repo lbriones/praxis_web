@@ -1,11 +1,9 @@
-<div class="form-actions">
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, multipart: true }) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { multipart: true }) do |f| %>
   <%= devise_error_messages! %>
 <legend>Tus Datos</legend>
  <%= f.fields_for :estudiante do |e| %>
  <div class="span5">
-            <%= image_tag("/img/login.png", height: '80', width: '80') %>
+            <%= image_tag @user.estudiante.foto, height: '80', width: '80' %>
             <%= e.label 'tu Rut', :class => 'control-label' %>
             <%= e.text_field :rut, :class => 'control-text' %>
             <%= e.label 'Como te llamas?', :class => 'control-label' %>
@@ -13,16 +11,16 @@
             <%= e.label 'describete en 140 caracteres !', :class => 'control-label' %>
             <%= e.text_area :bio, size: "2x3"%>
             <%= e.label 'Tu foto!', :class => 'control-label' %>
-            <%= e.file_field :foto %>
+            <%= e.text_field :foto %>
             <%= e.label 'tu direccion?', :class => 'control-label' %>
             <%= e.text_field :direccion %>
             <%= e.label 'Tu telefono?', :class => 'control-label' %>
             <%= e.text_field :telefono %>
-            <%= e.label 'Cual es tu nivel de estudios?', :class => 'control-label' %>
-            <%= e.collection_select(:nivel_codigo, Nivel.all, :id, :nombre, :class => 'control-label', :prompt => "Seleccione") %>
             
 </div>
  <div class="span5">
+            <%= e.label 'Tu fecha de nacimiento?', :class => 'control-label' %>
+            <%= e.text_field :fecha_nacimiento %>
             <%= e.label 'Que carrera estudiaste?', :class => 'control-label' %>
             <%= e.collection_select(:carrera_codigo, Carrera.all, :id, :nombre, :prompt => "Seleccione") %>
             <%= e.label 'En que comuna vives?', :class => 'control-label' %>
@@ -36,18 +34,17 @@
 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
   Currently waiting confirmation for: <%= resource.unconfirmed_email %>
 <% end %>
-            <%= f.label 'password', :class => 'control-label' %> <i>(Dejar en blanco si no quieres cambiar tu contraseña)</i></label>
+        <!--    <%= f.label 'password', :class => 'control-label' %> <i>(Dejar en blanco si no quieres cambiar tu contraseña)</i></label>
             <%= f.password_field :password, :autocomplete => "off", :disabled => true %>
             <%= f.label 'password confirmacion', :class => 'control-label' %>
-            <%= f.password_field :password_confirmation, :disabled => true %>
-            <%= f.label 'Ingresa tu actual contraseña' %> <i>(ingresa tu contraseña para confirmar los cambios)</i></label>
+            <%= f.password_field :password_confirmation, :disabled => true %>-->
+            <%= f.label '(ingresa tu contraseña para confirmar los cambios)' %>
             <%= f.password_field :current_password %>
 </form>
 
 <div class="form-actions"> 
           <%= f.submit "Update", :class => 'btn btn-primary' %>
-          <%= button_to "Eliminar mi cuenta", registration_path(resource_name), :data => { :confirm => "Estas seguro?" }, :method => :delete, :class => 'btn btn-danger'%>
-          <%= button_to "Volver", :back, :class => 'btn btn-default' %>
+           <!--button_to "Eliminar mi cuenta", registration_path(resource_name), :data => { :confirm => "Estas seguro?" }, :method => :delete, :class => 'btn btn-danger' -->
 </form>
 </div>
 <% end %>

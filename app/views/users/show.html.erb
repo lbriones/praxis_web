@@ -1,6 +1,6 @@
 <%- model_class = User -%>
 <div class="page-header">
-  <h1>Nicole Díaz</h1>
+  <h3><%= @user.estudiante.nombre %></h3>
 </div>
 
 <dl class="dl-horizontal">
@@ -11,16 +11,16 @@
 <div class="container">
             <div class="span8">
                 <div class="thumbnail span3">
-                    <img src="/img/profile.png" alt="">
+                    <%= image_tag @user.estudiante.foto %>
                 </div>
                 <div class="span4">
-                    <h3>Ingeniero en Informatica</h3>
-                    <p><%= @user.estudiante.bio %></p>
+                    <h3><%= @user.estudiante.carrera_codigo %></h3>
                 <div class="page-header">
                 </div>
                     <p>
                         <i class="icon-map-marker"></i>
                         <%= @user.estudiante.direccion %>
+                        
                     </p>
                     <div class="progress progress-info">
 					  <div class="bar" style="width: 80%">Trabajo ético</div>
@@ -72,30 +72,23 @@
                     <h2>Educacion</h2>
                 </div>
                 <dl>
-                    <dt><i class="icon-star"></i> Ingeniería En Informática</dt>
-                    <dd>Instituto Profesional Duoc UC.</dd>
-                    <dt><i class="icon-star"></i> Adm. Recursos Humanos</dt>
-                    <dd>Instituto Profesional Duoc UC.</dd>
-                    <dt><i class="icon-star"></i> Técnico Profesional En Administración</dt>
-                    <dd>Liceo Comercial Talagante, Talagante.</dd>
+                    <dt><i class="icon-star"></i> <%= @user.estudiante.carrera_codigo %> </dt>
+                    <dd><%= @user.estudiante. %></dd>
+
                 </dl>  
 
                 <div class="page-header">
                     <h2>Intereses</h2>
                 </div> 
                 <dl>
-                    <dt><i class="icon-asterisk"></i> Proyectos</dt>
-                    <dd>Desarrollo de ideas y negocios para proyectos de emprendimientos e innovación tecnológica.</dd>
-                    <dt><i class="icon-asterisk"></i> Actividades recreativas</dt>
-                    <dd>Participación activa en Hackatons nacionales e internacionales.</dd>
-                    <dt><i class="icon-asterisk"></i> Voluntariados</dt>
-                    <dd>Actualmente formo parte del equipo de gestión de Fundación AIESEC UC del Cono-Sur.</dd>
+                    <dt><i class="icon-asterisk"></i> Intereses</dt>
+                    <dd><%= @user.estudiante.bio %></dd>
                 </dl>  
 
             </div>
             <div class="span3">
                 <div class="page-header">
-               		<h2>Contact</h2>
+               		<h2>Contacto</h2>
                 </div>
                 <p><i class="icon-envelope"></i> <%= @user.email %></p>
                 <p><i class="icon-signal"></i> <%= @user.estudiante.telefono %></p>
@@ -104,9 +97,4 @@
                 <a href="#" class="btn btn-large noPrint" id="printBtn"><i class="icon-print"></i> Print</a>
                 <a href="Curriculum_Vitae.pdf" class="btn btn-large noPrint" id="downBtn"><i class="icon-download"></i> Download</a>
             </div>
-        </div>
-
-
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              users_path, :class => 'btn'  %>
+</div>
