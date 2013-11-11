@@ -1,5 +1,5 @@
 class Estudiante < ActiveRecord::Base
-  attr_accessible :id, :direccion, :nombre, :user_id, :rut, :bio, :foto, :fecha_nacimiento, :telefono, :carrera_codigo, :comuna_codigo, :institucion_codigo, :nombre
+  attr_accessible :id, :direccion, :nombre, :user_id, :rut, :bio, :foto, :telefono, :nombre, :carrera_id, :comuna_id, :institucion_id, :carrera_attributes, :comuna_attributes, :institucion_attributes
   belongs_to :user
   has_one :carrera
   has_one :comuna

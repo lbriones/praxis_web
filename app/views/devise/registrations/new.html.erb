@@ -12,9 +12,9 @@
             <%= f.label 'Cual es tu email?', :class => 'control-label' %>
             <%= f.email_field :email %>
             <%= e.label 'describete en 140 caracteres !', :class => 'control-label' %>
-            <%= e.text_area :bio, size: "2x3"%>
+            <%= e.text_area :bio, :value => 'El Ingeniero en Informática es capaz de analizar, diseñar, desarrollar, implementar, gestionar y dar soporte a sistemas computacionales, velando por la seguridad y la calidad de éstos dentro de una empresa.', size: "2x3"%>
             <%= e.label 'Tu foto!', :class => 'control-label' %>
-            <%= e.text_field :foto, :defaul => '/img/profile.png' %>
+            <%= e.text_field :foto, :value => '/img/profile_default.jpg' %>
             <%= e.label 'tu direccion?', :class => 'control-label' %>
             <%= e.text_field :direccion %>
             <%= e.label 'Tu telefono?', :class => 'control-label' %>
@@ -22,14 +22,12 @@
             
 </div>
  <div class="span5">
-            <%= e.label 'Tu fecha de nacimiento?', :class => 'control-label' %>
-            <%= e.text_field :fecha_nacimiento %>
             <%= e.label 'Que carrera estudiaste?', :class => 'control-label' %>
-            <%= e.collection_select(:carrera_codigo, Carrera.all, :id, :nombre, :prompt => "Seleccione") %>
+            <%= e.collection_select(:carrera_id, Carrera.all, :id, :nombre, :prompt => "Seleccione") %>
             <%= e.label 'En que comuna vives?', :class => 'control-label' %>
-            <%= e.collection_select(:comuna_codigo, Comuna.all, :id, :nombre, :prompt => "Seleccione") %>
+            <%= e.collection_select(:comuna_id, Comuna.all, :id, :nombre, :prompt => "Seleccione") %>
             <%= e.label 'Donde estudiaste?', :class => 'control-label' %>
-            <%= e.collection_select(:institucion_codigo, Institucion.all, :id, :nombre, :prompt => "Seleccione") %>
+            <%= e.collection_select(:institucion_id, Institucion.all, :id, :nombre, :prompt => "Seleccione") %>
 <% end %>
             
 

@@ -19,14 +19,12 @@
             
 </div>
  <div class="span5">
-            <%= e.label 'Tu fecha de nacimiento?', :class => 'control-label' %>
-            <%= e.text_field :fecha_nacimiento %>
             <%= e.label 'Que carrera estudiaste?', :class => 'control-label' %>
-            <%= e.collection_select(:carrera_codigo, Carrera.all, :id, :nombre, :prompt => "Seleccione") %>
+            <%= e.collection_select(:carrera_id, Carrera.all, :id, :nombre, :prompt => "Seleccione") %>
             <%= e.label 'En que comuna vives?', :class => 'control-label' %>
-            <%= e.collection_select(:comuna_codigo, Comuna.all, :id, :nombre, :prompt => "Seleccione") %>
+            <%= e.collection_select(:comuna_id, Comuna.all, :id, :nombre, :prompt => "Seleccione") %>
             <%= e.label 'Donde estudiaste?', :class => 'control-label' %>
-            <%= e.collection_select(:institucion_codigo, Institucion.all, :id, :nombre, :prompt => "Seleccione") %>
+            <%= e.collection_select(:institucion_id, Institucion.all, :id, :nombre, :prompt => "Seleccione") %>
 <% end %>
             <%= f.label 'Cual es tu email?', :class => 'control-label' %>
             <%= f.email_field :email, :disabled => true %>
