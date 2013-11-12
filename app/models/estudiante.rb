@@ -1,10 +1,11 @@
 class Estudiante < ActiveRecord::Base
-  attr_accessible :id, :direccion, :nombre, :user_id, :rut, :bio, :foto, :telefono, :nombre, :carrera_id, :comuna_id, :institucion_id, :carrera_attributes, :comuna_attributes, :institucion_attributes
-  belongs_to :user
-  has_one :carrera
-  has_one :comuna
-  has_one :institucion
- 
+  attr_accessible :id, :direccion, :nombre, :user_id, :rut, :bio, :foto, 
+  :telefono, :nombre, :carrera_id, :comuna_id, :institucion_id, :carrera_attributes, :comuna_attributes, :institucion_attributes
+  has_many :user
+  belongs_to :carrera
+  belongs_to :institucion
+  belongs_to :comuna
+
   validates_format_of :rut,
                       :with => /\A(\d{7,9})\Z/i,
                       :message => "no es valido."

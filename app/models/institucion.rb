@@ -1,4 +1,4 @@
 class Institucion < ActiveRecord::Base
   attr_accessible :nombre
-  belongs_to :estudiante
+  has_many :estudiante
 end
