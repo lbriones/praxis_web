@@ -18,7 +18,15 @@
   <%= link_to t('.back', :default => t("helpers.links.back")),
               posts_path, :class => 'btn'  %>
 
-  
-  <%= link_to t('.back', :default => t("Postular")),
-              posts_path, :class => 'btn btn-primary' %>
-              
+
+
+
+
+<% if user_signed_in? %>
+
+<%= link_to 'Postular', edit_post_path(@post), :class => 'btn btn-primary' %>
+
+<% else %>
+
+<%= link_to t('.new', :default => t("Iniciar Sesion")), new_user_session_path, :class => 'btn btn-medium btn-success' %>
+<% end %>

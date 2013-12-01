@@ -1,0 +1,7 @@
+Hola <%= @post.email %>,
+
+El estudiante <%= @user.estudiante.nombre %> postuló a tu oferta de practica laboral <%= @post.titulo %>, Puedes ver su CV en el siguiente link http://localhost:3000/users/<%= @user.id %>.
+<%= link_to "Ver CV", user_path(@user, :host => "localhost:3000") %>
+Saludos !
+
+Equipo Praxis.

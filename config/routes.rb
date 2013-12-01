@@ -23,7 +23,9 @@ PraxisWeb::Application.routes.draw do
   resources :areas
 
 
-  resources :posts
+  resources :posts do
+    put :postular, :on => :collection
+  end
   
   devise_for :users
   resources :users do
