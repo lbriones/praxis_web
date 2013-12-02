@@ -12,19 +12,61 @@
             <%= e.text_area :bio, size: "2x3"%>
             <%= e.label 'Tu foto!', :class => 'control-label' %>
             <%= e.text_field :foto %>
+</div>
+ <div class="span5">
             <%= e.label 'tu direccion?', :class => 'control-label' %>
             <%= e.text_field :direccion %>
             <%= e.label 'Tu telefono?', :class => 'control-label' %>
             <%= e.text_field :telefono %>
-            
-</div>
- <div class="span5">
             <%= e.label 'Que carrera estudiaste?', :class => 'control-label' %>
             <%= e.collection_select(:carrera_id, Carrera.all, :id, :nombre, :prompt => "Seleccione") %>
             <%= e.label 'En que comuna vives?', :class => 'control-label' %>
             <%= e.collection_select(:comuna_id, Comuna.all, :id, :nombre, :prompt => "Seleccione") %>
             <%= e.label 'Donde estudiaste?', :class => 'control-label' %>
             <%= e.collection_select(:institucion_id, Institucion.all, :id, :nombre, :prompt => "Seleccione") %>
+</div>
+ <div class="span5">
+            <h5><u> Segun tu criterio, responde las siguientes preguntas: </u></h5>
+            <h5> ¿ Qué nivel de liderazgo tienes ? </h5>
+            <%= e.radio_button :liderazgo, 25 %> Bajo 
+            <%= e.radio_button :liderazgo, 50 %> Medio 
+            <%= e.radio_button :liderazgo, 75 %> Alto 
+            <%= e.radio_button :liderazgo, 100 %> Excelente 
+<br />
+<br />
+<legend></legend>
+            <h5> ¿ Cuál es tu nivel de trabajo en equipo ? </h5>
+            <%= e.radio_button :trabajo_en_equipo, 25 %> Bajo 
+            <%= e.radio_button :trabajo_en_equipo, 50 %> Medio 
+            <%= e.radio_button :trabajo_en_equipo, 75 %> Alto 
+            <%= e.radio_button :trabajo_en_equipo, 100 %> Excelente 
+<br />
+<br />
+<legend></legend>
+            <h5> ¿ Cuán creativ@ te consideras ? </h5>
+            <%= e.radio_button :creatividad, 25 %> Bajo 
+            <%= e.radio_button :creatividad, 50 %> Medio 
+            <%= e.radio_button :creatividad, 75 %> Alto 
+            <%= e.radio_button :creatividad, 100 %> Excelente 
+<br />
+<br />
+<legend></legend>
+            <h5> ¿ Logras comunicarte de forma efectiva ? </h5>
+            <%= e.radio_button :habilidades_de_comunicacion, 25 %> Bajo 
+            <%= e.radio_button :habilidades_de_comunicacion, 50 %> Medio 
+            <%= e.radio_button :habilidades_de_comunicacion, 75 %> Alto 
+            <%= e.radio_button :habilidades_de_comunicacion, 100 %> Excelente 
+<br />
+<br />
+<legend></legend>
+            <h5> ¿ Te sientes segur@ de ti mism@ ? </h5>
+            <%= e.radio_button :seguridad_personal, 25 %> Bajo 
+            <%= e.radio_button :seguridad_personal, 50 %> Medio 
+            <%= e.radio_button :seguridad_personal, 75 %> Alto 
+            <%= e.radio_button :seguridad_personal, 100 %> Excelente 
+<br />
+<br />
+<legend></legend>
 <% end %>
             <%= f.label 'Cual es tu email?', :class => 'control-label' %>
             <%= f.email_field :email, :disabled => true %>

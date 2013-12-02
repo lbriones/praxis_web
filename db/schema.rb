@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131201045111) do
+ActiveRecord::Schema.define(:version => 20131202012458) do
 
   create_table "areas", :force => true do |t|
     t.string   "nombre"
@@ -48,14 +48,20 @@ ActiveRecord::Schema.define(:version => 20131201045111) do
     t.string   "rut"
     t.string   "direccion"
     t.string   "telefono"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "foto"
     t.text     "bio"
     t.integer  "user_id"
     t.integer  "comuna_id"
     t.integer  "institucion_id"
     t.integer  "carrera_id"
+    t.integer  "test_id"
+    t.integer  "liderazgo"
+    t.integer  "trabajo_en_equipo"
+    t.integer  "creatividad"
+    t.integer  "habilidades_de_comunicacion"
+    t.integer  "seguridad_personal"
   end
 
   add_index "estudiantes", ["user_id"], :name => "index_estudiantes_on_user_id"
@@ -81,6 +87,16 @@ ActiveRecord::Schema.define(:version => 20131201045111) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "email"
+  end
+
+  create_table "tests", :force => true do |t|
+    t.integer  "liderazgo"
+    t.integer  "trabajo_en_equipo"
+    t.integer  "creatividad"
+    t.integer  "habilidades_de_comunicacion"
+    t.integer  "seguridad_personal"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "users", :force => true do |t|
