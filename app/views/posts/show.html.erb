@@ -12,15 +12,12 @@
   <dd><%= @post.funciones %></dd>
   <dt><strong><%= model_class.human_attribute_name(:requisitos) %>:</strong></dt>
   <dd><%= @post.requisitos %></dd>
+  <dd><%= raw @post.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></dd>
 </dl>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               posts_path, :class => 'btn'  %>
-
-
-
-
 
 <% if user_signed_in? %>
 

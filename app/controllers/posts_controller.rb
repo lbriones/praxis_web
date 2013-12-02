@@ -2,7 +2,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.search(params[:search])
+    if params[:tag]
+      @posts = Post.search(params[:search])
+      @posts = Post.tagged_with(params[:tag])
+    else
+      @posts = Post.all
+    end
   end
   
   # GET /posts/1

@@ -56,8 +56,8 @@
                 <li class=""><%= link_to ' Cerrar Sesion', destroy_user_session_path, method: :delete %></li>
               </ul>
             <% else %>
-            <%= link_to t('.new', :default => t("Publicar Aviso")), new_post_path, :class => 'btn btn-medium btn-primary' %>
-            <%= link_to t('.new', :default => t("Iniciar Sesion")), new_user_session_path, :class => 'btn btn-medium btn-success' %>
+            <%= link_to t('.new', :default => t("Publicar Aviso")), new_post_path, :class => 'btn btn-primary' %>
+            <%= link_to t('.new', :default => t("Iniciar Sesion")), new_user_session_path, :class => 'btn btn-success' %>
             <% end %>
           </ul>
         </div><!--/.nav-collapse -->

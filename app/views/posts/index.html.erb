@@ -5,13 +5,19 @@
 <button type="submit" class="btn search-btn"><i class="icon-search"></i></button>
 <% end %>
 </div>
-
+<div class="span12">
+<div>
+	<% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
+		<%= link_to tag.name, tag_path(tag.name), :class => 'tag label label-info' %>
+	<% end %>
+</div>
 <div class="span12">
 <%- model_class = Post -%>
     <% @posts.each do |post| %>
     <h3><%= post.titulo %></h3>
     <h4>Renta: $ <%= post.sueldo %></h4>
         <p><%= post.descripcion %></p>
+        <p><span ><%= raw post.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></span></p>
         <p><span class="label">Publicado hace <%= time_ago_in_words(post.created_at) %></span></p>
     <%= link_to 'Ver Oferta laboral', post_path(post), :class => 'btn btn-success' %>
 <% end %>

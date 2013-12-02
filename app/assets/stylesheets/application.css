@@ -25,3 +25,12 @@ body {
     padding: 10px 15px;
   }
 */
+#tag_cloud {
+	width: 400px;
+	line-height: 1.6em;
+	.s { font-size: 0.8em; 
+		color: #eb9316}
+	.m { font-size: 1.2em; }
+	.l { font-size: 1.8em; }
+
+}

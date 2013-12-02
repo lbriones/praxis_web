@@ -1,5 +1,5 @@
 PraxisWeb::Application.routes.draw do
-
+  get 'tags/:tag', to: 'posts#index', as: :tag
   get "login/index"
   
   resources :empresas
