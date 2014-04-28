@@ -1,5 +1,4 @@
 == Welcome to Rails
-https://www.codeship.io/projects/2d3b1dd0-b0c1-0131-dff9-1e18e713c298/status
 
 Rails is a web-application framework that includes everything needed to create
 database-backed web applications according to the Model-View-Control pattern.
